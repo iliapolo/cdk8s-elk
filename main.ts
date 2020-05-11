@@ -6,7 +6,6 @@ class MyChart extends Chart {
     super(scope, name);
 
     // define resources here
-
   }
 }
 

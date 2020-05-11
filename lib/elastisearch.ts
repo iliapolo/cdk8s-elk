@@ -471,8 +471,10 @@ export class ElasticSearch extends Construct {
                   })
                 }
 
-                mounts.push(...props.extraVolumes)
               }
+              
+              mounts.push(...props.extraVolumes)
+
               return mounts;
             })(),
             imagePullSecrets: props.imagePullSecrets,
@@ -533,9 +535,10 @@ cp -a /usr/share/elasticsearch/config/elasticsearch.keystore /tmp/keystore/
                         mountPath: `/tmp/keystoreSecrets/${k.secretName}`
                       } 
                     }),
-                    ...props.extraInitContainers
-                  ]
-                })
+                  ],
+                },
+                ...props.extraInitContainers
+                )
               }
               return containers;
 
